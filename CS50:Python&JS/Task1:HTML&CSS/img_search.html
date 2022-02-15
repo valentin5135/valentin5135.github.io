@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+
+    <title>Пошук зображень</title>
+
+    <style>
+		.links {
+			position: absolute;
+			right: 50px;
+			}
+		a {
+			margin: 10px;
+		}
+
+		.metatext {
+			color: #ff0000;
+			font-size: 24px;
+		}
+		
+		.field {
+			border: 1px solid #dfe1e5;
+			min-width: 400px;
+			height: 34px;
+			border-radius: 20px;
+			margin: 10px;
+			padding-left: 20px;
+			font-size: 16px;
+		}
+		.field:hover {
+			border: 1px solid #c0c0c0;
+		}
+		.btn {
+			background-color: #f8f9fa;
+    			border: 1px solid #f8f9fa;
+    			border-radius: 4px;
+    			color: #3c4043;
+    			font-family: arial,sans-serif;
+    			font-size: 14px;
+    			margin: 11px 4px;
+    			padding: 0 16px;
+    			line-height: 27px;
+    			height: 36px;
+    			min-width: 54px;
+    			text-align: center;
+    			cursor: pointer;
+    			user-select: none;
+		}
+		.btn:hover {
+			border: 1px solid #c0c0c0;
+		}
+    </style>
+</head>
+</body>
+
+	<div class="links">
+		<a href="index.html">Пошук</a>
+		<a href="extended_search.html">Розширений пошук</a>
+	</div>
+
+	<div class="main">
+		<form action="https://google.com/search" align="center">
+			<img class="myphoto"> <img src="myface2.jpeg" alt="тут має бути моє фото">.</p>
+			<p class="metatext"> Пошук зображень за запитом </p>
+			<input class="field" type="text" name="q">
+			<input type="hidden" name="tbm" value="isch">
+
+			<p>
+			<button class="btn" type="submit">Пошук зображень</button>
+			</p>
+		</form>
+	</div>
+
+</body></html>
