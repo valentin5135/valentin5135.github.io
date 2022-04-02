@@ -1,0 +1,38 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <h2>Add list</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+    <div class="create">
+
+      <form action="{% url 'create' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+              {{ auc_form.name }}
+          </div>
+          <div class="form-group">
+              {{ auc_form.categorie }}
+          </div>
+          <div class="form-group">
+              {{ auc_form.description }}
+          </div>
+          <div class="form-row field-photo">
+              <div>
+                  <label for="id_photo">Photo:</label>
+                  <p class="file-upload">Currently: <a href="/media/photos/no_photo.png">photos/no_photo.png</a><br>
+                  Change:
+                  {{ auc_form.photo }}
+              </div>
+          </div>
+          <div class="form-group">
+              {{ bet_form.current_bet }}
+          </div>
+          <input class="btn btn-primary" type="submit" value="Create List">
+      </form>
+    </div>
+
+{% endblock %}

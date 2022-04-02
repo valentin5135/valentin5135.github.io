@@ -1,0 +1,122 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    {% if message %}
+        <h4><strong>{{ message }}</strong></h4>
+    {% endif %}
+
+    <div class="page-block">
+      <div class="page-top">
+        <div class="page-title">
+          <h2>{{ auction.name}}</h2>
+        </div>
+        {% if user.is_authenticated and auction.status == 'active' and user == auction.pub_author %}
+            <div class="page-delete">
+              <h5><a class="nav-link" href="{% url 'page' pk=auction.id status='closed' %}">Close Auction</a></h5>
+            </div>
+        {% endif %}
+      </div>
+      <div class="page-middle">
+        <div class="page-image-block">
+          <img class="big-image" src="{{ auction.photo_url }}" alt="Photo"/>
+        </div>
+        <div class="page-menu">
+          <div class="trade-block">
+              <h2><strong>${{ auction.price }}</strong></h2>
+              {% if auction.status == 'active' %}
+                  {% if user.is_authenticated %}
+                      {% if auction.pub_author != bet.bet_author %}
+                          <div class="last-bid-author">
+                            <p>last bet placed from <strong>{{ bet.bet_author }}</strong></p>
+                          </div>
+                      {% endif %}
+                      {% if user != auction.pub_author %}
+                          <form action="{% url 'page' pk=auction.id status=auction.status %}" method="post">
+                              {% csrf_token %}
+                              <div class="form-group">
+                                  {{ bet_form.current_bet }}
+                              </div>
+                              <input class="btn btn-primary" type="submit" value="Place Bet">
+                          </form>
+                      {% endif %}
+                  {% endif %}
+              {% else %}
+                  {% if user == auction.pub_author %}
+                      {% if user == bet.bet_author %}
+                          <div class="goods-info">
+                            <h3>The goods was not sold. No bets have been placed...</h3>
+                          </div>
+                      {% else %}
+                          <div class="goods-info">
+                            <h3>The goods was sold to <strong> {{ bet.bet_author }} </strong></h3>
+                            <h5>You can contact him/her at <strong> {{ bet.bet_author.email }} </strong></h5>
+                          </div>
+                      {% endif %}
+                  {% elif user == bet.bet_author %}
+                      <h3><strong>You won this auction!</strong></h3>
+                      <h5>Contact the author at <strong> {{ auction.pub_author.email }} </strong></h5>
+                  {% else %}
+                      <div class="goods-info">
+                        <h3>The goods was sold to <strong> {{ bet.bet_author }} </strong></h3>
+                      </div>
+                  {% endif %}
+              {% endif %}
+          </div>
+          <div class="watchlist">
+              {% if user.is_authenticated and auction.status == 'active' and user != auction.pub_author %}
+                  <form action="{% url 'page' pk=auction.id status=auction.status %}" method="post">
+                      {% csrf_token %}
+                      Add to WatchList {{ watch_form.follow }}
+                      <input class="btn btn-primary" type="submit" value="submit">
+                  </form>
+              {% endif %}
+          </div>
+          <div class="page-details">
+              <h4>Details</h4>
+              <ul>
+                  <li>
+                      Author: {{ auction.pub_author }}
+                  </li>
+                  <li>
+                      Category: {{ auction.categorie }}
+                  </li>
+                  <li>
+                      Status: {{ auction.status }}
+                  </li>
+              </ul>
+              <i>Created {{ auction.pub_data }}</i>
+          </div>
+        </div>
+      </div>
+      <div class="page-description">
+          {{ auction.description }}<br>
+      </div>
+      <h3> Comments </h3>
+      {% if user.is_authenticated and auction.status == 'active' %}
+          <form action="{% url 'page' pk=auction.id status=auction.status %}" method="post">
+              {% csrf_token %}
+              <div class="com-form-block">
+                {{ com_form.comment }}<br>
+                <input class="btn btn-primary" type="submit" value="Add comment">
+              </div>
+          </form>
+      {% endif %}
+      <div class="comments-block">
+          {% for comment in comments %}
+              <div class="comment-meta">
+                <div class="comment-author">
+                  <h5><strong>{{ comment.com_author }}</strong></h5>
+                </div>
+                <div class="comment-data">
+                  {{ comment.com_data }}
+                </div>
+              </div>
+              <div class="comment-text">
+                {{ comment.comment }}
+              </div>
+          {% endfor %}
+      </div>
+    </div>
+
+{% endblock %}

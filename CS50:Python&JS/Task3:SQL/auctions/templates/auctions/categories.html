@@ -1,0 +1,12 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Categories</h2>
+    {% for auction in auctions %}
+        {% if auction.categorie not in categories and auction.status == 'active'%}
+            <div class="categories">
+              <h4><a class="nav-link" href="{% url 'sel_cat' auction.categorie  %}">{{ auction.categorie }}</a></h4>
+            </div>
+      {% endif %}
+    {% endfor %}
+{% endblock %}

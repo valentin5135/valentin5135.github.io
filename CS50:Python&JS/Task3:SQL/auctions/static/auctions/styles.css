@@ -1,0 +1,241 @@
+body {
+    padding: 10px;
+}
+
+var {
+    font-size: large;
+}
+
+.list {
+    position: relative;
+    margin: 10px 20px;
+    height: 300px;
+    border: 1px outset #c0c0c0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.list:hover {
+			border: 1px solid black;
+}
+
+.list-top {
+    position: relative;
+    float: top;
+    min-height: 30px;
+}
+
+.list-title {
+    position: relative;
+    max-height: 30px;
+    float: left;
+    overflow: hidden;
+}
+
+.mini-image-block {
+    position: absolute;
+    min-height: 220px;
+    min-width: 220px;
+    padding: 20px;
+}
+
+.mini-image {
+    position: absolute;
+    max-height: 200px;
+    max-width: 200px;
+    margin: 20px;
+}
+
+.list-active-status {
+    position: relative;
+    float: right;
+    float: top;
+    max-width: 60px;
+    padding: 0 4px;
+    border-radius: 4px;
+    background: #98fb98;
+}
+
+.list-closed-status {
+    position: relative;
+    float: right;
+    float: top;
+    max-width: 60px;
+    padding: 0 4px;
+    border-radius: 4px;
+    background: #c0c0c0;
+}
+
+.list-info {
+    position: relative;
+    margin-left: 300px;
+    max-height: 280px;
+}
+
+.list-description {
+    overflow: auto;
+    max-height: 140px;
+    margin: 5px;
+}
+
+.list-other {
+    max-height: 20px;
+    overflow: hidden;
+    margin: 5px;
+}
+
+.categories {
+    position: relative;
+    margin: 10px 20px;
+    border: 1px outset #c0c0c0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.categories:hover {
+		border: 1px solid black;
+}
+
+.page-block {
+    margin: 40px;
+    padding: 0 200px;
+}
+
+.page-top {
+    position: relative;
+    float: top;
+    min-width: 800px;
+    overflow: hidden;
+}
+
+.page-title {
+    position: relative;
+    max-height: 40px;
+    float: left;
+    min-width: 400px;
+}
+
+.page-delete {
+    position: relative;
+    float: right;
+    height: 40px;
+    width: 160px;
+    border-radius: 4px;
+    background: #c0c0c0;
+}
+
+.page-delete:hover {
+		border: 1px solid black;
+}
+
+.page-middle {
+    position: relative;
+    margin: 20px;
+}
+
+.page-image-block {
+    position: absolute;
+    min-height: 600px;
+    min-width: 600px;
+    padding: 10%;
+}
+
+.big-image {
+    position: absolute;
+    max-height: 600px;
+    max-width: 600px;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.page-menu {
+    position: relative;
+    padding: 80px 80px 0 620px;
+}
+
+.trade-block {
+    margin: 20px;
+    min-width: 400px;
+}
+
+.watchlist {
+    margin: 20px;
+    min-width: 400px;
+}
+
+.page-details {
+    margin: 20px;
+    min-width: 400px;
+}
+
+.page-description {
+    position: relative;
+    max-height: 300px;
+    min-width: 800px;
+    overflow: auto;
+    margin-top: 300px;
+    margin-bottom: 40px;
+}
+
+.com-form-block {
+    position: relative;
+    padding: 0 200px;
+}
+
+.comment-form {
+    position: relative;
+    width: 800px;
+    max-height: 140px;
+    overflow: auto;
+}
+
+.comments-block {
+    position: relative;
+    padding: 20px 200px;
+}
+
+.comment-meta {
+    position: relative;
+    width: 800px;
+    height: 40px;
+    float: top;
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
+    border-top: 1px solid silver;
+    padding: 6px 20px;
+    margin-top: 10px;
+}
+
+.comment-author {
+    position: relative;
+    float: left;
+    max-width: 400px;
+}
+
+.comment-data {
+    position: relative;
+    float: right;
+    max-width: 200px;
+}
+
+.comment-text {
+    position: relative;
+    width: 800px;
+    max-height: 120px;
+    border: 1px solid silver;
+    padding: 6px 20px;
+}
+
+.goods-info {
+    margin: 20px;
+    min-width: 600px;
+}
+
+.create {
+    margin: 40px;
+}

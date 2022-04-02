@@ -1,0 +1,42 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+
+        {% for auction in auctions %}
+            {% if auction.status == 'active' %}
+                <div class="list">
+                  <div class="list-top">
+                    <div class="list-title">
+                      <h5><a class="nav-link" href="{% url 'page' pk=auction.id status=auction.status %}">{{ auction.name }}</a></h5>
+                    </div>
+                    <div class="list-active-status">
+                      <var>{{ auction.status }}</var>
+                    </div>
+                  </div>
+                  <div class="mini-image-block">
+                    <img class="mini-image" src="{{ auction.photo_url }}" alt="Photo"/>
+                  </div>
+                    <div class="list-info">
+                      <div class="list-description">
+                        <strong>Description:</strong><br>
+                        {{ auction.description }}
+                      </div>
+                      <div class="list-other">
+                        <strong>Category:</strong> {{ auction.categorie }}<br>
+                      </div>
+                      <div class="list-other">
+                        <strong>Price: <var>${{ auction.price }}</var></strong><br>
+                      </div>
+                      <div class="list-other">
+                        <strong>Author:</strong> {{ auction.pub_author }}<br>
+                      </div>
+                      <div class="list-other">
+                        <i>Created {{ auction.pub_data }}</i>
+                      </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <h2>Watch List</h2>
+    {% for watch in watches %}
+        {% if watch.page.status == 'active' %}
+            <div class="list">
+              <div class="list-top">
+                <div class="list-title">
+                  <h5><a class="nav-link" href="{% url 'page' pk=watch.page.id status=watch.page.status %}">{{ watch.page.name }}</a></h5>
+                </div>
+                <div class="list-active-status">
+                  <var>{{ watch.page.status }}</var>
+                </div>
+              </div>
+              <div class="mini-image-block">
+                <img class="mini-image" src="{{ watch.page.photo_url }}" alt="Photo"/>
+              </div>
+                <div class="list-info">
+                  <div class="list-description">
+                    <strong>Description:</strong><br>
+                    {{ watch.page.description }}
+                  </div>
+                  <div class="list-other">
+                    <strong>Category:</strong> {{ watch.page.categorie }}<br>
+                  </div>
+                  <div class="list-other">
+                    <strong>Price: <var>${{ watch.page.price }}</var></strong><br>
+                  </div>
+                  <div class="list-other">
+                    <strong>Author:</strong> {{ watch.page.pub_author }}<br>
+                  </div>
+                  <div class="list-other">
+                    <i>Created {{ watch.page.pub_data }}</i>
+                  </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}
