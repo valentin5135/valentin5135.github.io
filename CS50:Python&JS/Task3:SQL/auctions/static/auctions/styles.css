@@ -10,6 +10,7 @@ var {
     position: relative;
     margin: 10px 20px;
     height: 300px;
+    min-width: 600px;
     border: 1px outset #c0c0c0;
     padding: 10px;
     border-radius: 10px;
@@ -22,12 +23,12 @@ var {
 .list-top {
     position: relative;
     float: top;
-    min-height: 30px;
+    min-height: 36px;
 }
 
 .list-title {
     position: relative;
-    max-height: 30px;
+    max-height: 36px;
     float: left;
     overflow: hidden;
 }
@@ -105,6 +106,7 @@ var {
     position: relative;
     float: top;
     min-width: 800px;
+    max-width: 1000px;
     overflow: hidden;
 }
 
@@ -156,6 +158,7 @@ var {
 .page-menu {
     position: relative;
     padding: 80px 80px 0 620px;
+    min-height: 600px;
 }
 
 .trade-block {
@@ -177,8 +180,8 @@ var {
     position: relative;
     max-height: 300px;
     min-width: 800px;
+    max-width: 1000px;
     overflow: auto;
-    margin-top: 300px;
     margin-bottom: 40px;
 }
 
