@@ -1,0 +1,146 @@
+textarea {
+    min-height: 400px;
+}
+
+.email-block {
+    display: flex;
+    flex-direction: row;
+}
+
+.email-block > .each-mail {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0 5px 20px;
+    height: 35px;
+    width: 95%;
+    border: 1px outset silver;
+    border-radius: 5px;
+}
+
+.each-mail:hover {
+	border: 1px solid black;
+}
+
+.each-mail > .sender {
+    position: relative;
+    width: 30%;
+    margin: 5px 20px;
+    overflow: hidden;
+}
+
+.each-mail > .subject {
+    position: relative;
+    width: 50%;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.each-mail > .timestamp {
+    position: relative;
+    width: 20%;
+    float: right;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.email-block > .r-each-mail {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0 5px 20px;
+    height: 35px;
+    width: 95%;
+    border: 1px solid silver;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    color: gray;
+}
+
+.r-each-mail:hover {
+	border: 1px solid black;
+}
+
+.r-each-mail > .sender {
+    position: relative;
+    width: 30%;
+    margin: 5px 20px;
+    overflow: hidden;
+}
+
+.r-each-mail > .subject {
+    position: relative;
+    width: 50%;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.r-each-mail > .timestamp {
+    position: relative;
+    width: 20%;
+    float: right;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.sent-mails {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0 10px 20px;
+    height: 35px;
+    border: 1px outset #c0c0c0;
+    border-radius: 5px;
+}
+
+.sent-mails:hover {
+	border: 1px solid black;
+}
+
+.sent-mails > .recipients {
+    width: 30%;
+    margin: 5px 20px;
+    overflow: hidden;
+}
+
+.sent-mails > .s-subject {
+    position: relative;
+    width: 50%;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.sent-mails > .s-timestamp {
+    position: relative;
+    width: 20%;
+    float: right;
+    margin: 5px;
+    overflow: hidden;
+}
+
+button {
+    border: 1px solid silver;
+    background-color: white;
+    margin: 0 5px;
+}
+
+button:hover {
+    border: 1px solid black;
+    background-color: gainsboro;
+}
+.email-block > .red-arch-btn {
+    color: red;
+    width: 35px;
+    margin: 5px 20px 5px 5px;
+    height: 35px;
+    border: 1px outset silver;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.email-block > .green-arch-btn {
+    color: chartreuse;
+    width: 35px;
+    margin: 5px 20px 5px 5px;
+    height: 35px;
+    border: 1px outset silver;
+    border-radius: 5px;
+    padding: 4px;
+}
