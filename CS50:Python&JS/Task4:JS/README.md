@@ -29,13 +29,13 @@
 ### Підказки
 - Щоб створити елемент HTML і додати до нього слухача подій, ви можете використовувати код JavaScript на кшталт:
 
-    const element = document.createElement('div');
+        const element = document.createElement('div');
 
-    element.innerHTML = 'Ось це вміст div.';
-    element.addEventListener('click', function() {
-        console.log('Цей елемент натиснуто!')
-    });
-    document.querySelector('#container').append(element);
+        element.innerHTML = 'Ось це вміст div.';
+        element.addEventListener('click', function() {
+            console.log('Цей елемент натиснуто!')
+        });
+        document.querySelector('#container').append(element);
 
 Цей код створює новий елемент div, встановлює його innerHTML, і додає слухача подій, що викликає конкретну функцію, коли на цей div натискають. Потім він додає новостворений div до елементу HTML з id container (цей код припускає, що елемент HTML з id containerіснує: ви, ймовірно, захочете змінити аргумент querySelector так, щоб він був тим елементом, до якого ви хочете додати елемент).
 
