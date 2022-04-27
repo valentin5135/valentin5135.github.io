@@ -1,0 +1,50 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+
+    {% for post in posts %}
+        <div id="posts-list" class="block">
+            <div class="author">
+                <a class="nav-link" href="{% url 'profile' post.post_author.id %}"><strong>{{ post.post_author }}</strong></a>
+            </div>
+            <div class="content" id="content-{{ post.id }}">
+                <p>{{post.post_content}}</p>
+            </div>
+            <div class="datetime">
+                <i>{{ post.post_date }}</i>
+            </div>
+            <div class="like-block">
+                <button class="like" id="like-btn-{{ post.id }}" data-post="{{ post.id }}" data-user="{{ user.username }}">
+                    <span class="fa fa-heart-o" id=heart aria-hidden="true"></span>
+                </button>
+                <div class="likes" id="likes-{{ post.id }}">
+                    <strong>{{ post.likes }}</strong>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="pagination">
+        <nav aria-label="Page navigation example">
+            <span class="step-links">
+                <ul class="pagination">
+                    {% if page_obj.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page=1">&lt;&lt;</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&lt;</a></li>
+                    {% endif %}
+
+                    {% if page_obj.paginator.num_pages > 1 %}
+                        <li class="page-item"><span class="current page-link">
+                                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span></li>
+                    {% endif %}
+
+                    {% if page_obj.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&gt;</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">&gt;&gt;</a></li>
+                    {% endif %}
+                </ul>
+            </span>
+        </nav>
+    </div>
+
+{% endblock %}

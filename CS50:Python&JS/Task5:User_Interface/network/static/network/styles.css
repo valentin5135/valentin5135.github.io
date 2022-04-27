@@ -1,0 +1,109 @@
+.block {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid silver;
+    border-radius: 5px;
+}
+
+.form-control {
+    margin: 10px;
+}
+
+#new-post-form {
+    margin: 20px;
+}
+
+.btn {
+    margin: 10px;
+}
+
+.up {
+    background-color: red;
+    color: white;
+}
+
+.up:hover {
+    background-color: #cc0000;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.down {
+    background-color: silver;
+    color: gray;
+}
+
+.down:hover {
+    background-color: gray;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.post-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.post-bottom {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.author {
+    font-size: 20px;
+}
+
+.content {
+    font-size: 24px;
+}
+
+.edit-btn {
+    background-color: white;
+    color: gray;
+    padding: 4px;
+    border: 1px solid white;
+}
+
+.like-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.like-block > .like {
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.like-block > .likes {
+    padding: 5px;
+}
+
+.fa-heart-o {
+  color: red;
+  cursor: pointer;
+}
+
+.fa-heart {
+  color: red;
+  cursor: pointer;
+}
+
+.profile-title {
+    margin: 30px;
+}
+
+.count {
+    color: red;
+}
+
+.margin-20 {
+    margin: 20px;
+}
+
+.pagination {
+    margin: 20px;
+}
