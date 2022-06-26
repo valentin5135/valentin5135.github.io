@@ -1,0 +1,84 @@
+{% extends "YouControl/layout.html" %}
+
+{% block body %}
+
+    {% for post in page_obj %}
+        <div id="post-{{ post.id }}" class="block">
+            <div class="post-top">
+                <div class="company-name" id="name-{{ post.id }}">
+                    <p>{{post.post_name}}</p>
+                </div>
+                {% if post.post_author == user %}
+                <div class="edit-page" id="edit-page-{{ post.id }}">
+                    <button class="edit-btn btn" data-post="{{ post.id }}"><i>Edit post</i></button>
+                    <button class="delete-btn btn" data-post="{{ post.id }}"><i>Delete post</i></button>
+                </div>
+                {% endif %}
+            </div>
+            <div class="post-bottom">
+                <div class="content" id="description-{{ post.id }}">
+                    <i>{{post.description}}</i>
+                </div>
+                {% if user.is_authenticated %}
+                    <div class="content">
+                        <h5><strong>Owner: </strong><a href="{% url 'profile' post.post_author.id %}">{{ post.post_author }}</a></h5>
+                    </div>
+                {% else %}
+                    <div class="content">
+                        <h5><strong>Owner: </strong>{{ post.post_author }}</h5>
+                    </div>
+                {% endif %}
+
+                <div class="content">
+                    <h5 id="tin-{{ post.id }}"><strong>TIN: </strong><i>{{post.tin}}</i></h5>
+                </div>
+                <div class="content">
+                    <h5 id="sert_num-{{ post.id }}"><strong>Sertificate number: </strong><i>{{post.sert_num}}</i></h5>
+                </div>
+                <div class="content">
+                    <h5 id="sert_status-{{ post.id }}"><strong>Sertificate status: </strong><i>{{post.sert_status}}</i></h5>
+                </div>
+                <div class="datetime">
+                    <i>Date of publication: {{ post.post_date }}</i>
+                </div>
+                <b:if cond='data:blog.pageType != &quot;index&quot;'>
+                    <div class='post-share'>
+                        <ul class='share-links social social-color'>
+                            <b:class cond='data:blog.isMobileRequest' name='mobile-share'/>
+                                <li class='facebook'><a class='facebook' data-height='650' data-width='550' expr:href='&quot;https://www.facebook.com/sharer.php?u=&quot; + data:post.url' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' rel='nofollow' target='_blank'><span/></a></li>
+                                <li class='twitter'><a class='twitter' data-height='460' data-width='550' expr:href='&quot;https://twitter.com/share?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' rel='nofollow' target='_blank'><span/></a></li>
+                                <li class='pinterest'><a class='pinterest' data-height='750' data-width='735' expr:href='&quot;https://www.pinterest.com/pin/create/button/?url=&quot; + data:post.url + &quot;&amp;media=&quot; + data:post.featuredImage + &quot;&amp;description=&quot; + data:post.title' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' rel='nofollow' target='_blank'><span/></a></li>
+                                <li class='telegram'><a class='telegram' data-height='650' data-width='1000' expr:href='&quot;https://telegram.me/share/url?url=&quot; + data:blog.url' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' rel='nofollow' target='_blank' title='telegram'><span/></a></li>
+                                <li class='vk'><a class='vk' data-height='650' data-width='650' expr:href='&quot;https://vk.com/share.php?mini=true&amp;amp;url=&quot; + data:post.url + &quot;&amp;amp;title=&quot; + data:post.title + &quot;&amp;amp;summary=&quot; + data:post.snippets' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' target='_blank' title='Vkontakte'><span/></a></li>
+                                <li class='reddit'><a class='twitter' data-height='460' data-width='550' expr:href='&quot;https://www.reddit.com/submit?url=&quot; + data:post.url + &quot;&amp;resubmit=true&amp;title=&quot; + data:post.title + &quot;&quot;' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' rel='nofollow' target='_blank'><span/></a></li>
+                        </ul>
+                    </div>
+                </b:if>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="pagination">
+        <nav aria-label="Page navigation example">
+            <span class="step-links">
+                <ul class="pagination">
+                    {% if page_obj.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page=1">&lt;&lt;</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&lt;</a></li>
+                    {% endif %}
+
+                    {% if page_obj.paginator.num_pages > 1 %}
+                        <li class="page-item"><span class="current page-link">
+                                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span></li>
+                    {% endif %}
+
+                    {% if page_obj.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&gt;</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">&gt;&gt;</a></li>
+                    {% endif %}
+                </ul>
+            </span>
+        </nav>
+    </div>
+
+{% endblock %}

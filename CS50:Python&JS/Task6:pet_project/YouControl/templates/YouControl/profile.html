@@ -1,0 +1,144 @@
+{% extends "YouControl/layout.html" %}
+
+{% block body %}
+
+    <div id="profile">
+        <div class="profile-title">
+            <h3><strong>{{ author.username }}</strong>'s Profile</h3>
+        </div>
+        {% if user.username != author.username %}
+            {% if subscribed == None %}
+                <div class="margin-20">
+                    <button class="btn up" id="subscribe" data-user="{{author.id}}">
+                        <h5>
+                            <strong>Subscribe</strong>
+                        </h5>
+                    </button>
+                </div>
+            {% else %}
+                <div class="margin-20">
+                    <button class="btn down" id="subscribe" data-user="{{author.id}}">
+                        <h5>
+                            <strong>Unsubscribe</strong>
+                        </h5>
+                    </button>
+                </div>
+            {% endif %}
+        {% endif %}
+        <div class="margin-20">
+            <h5>
+                Full Name:
+                <strong >{{ author.fullname }}</strong>
+            </h5>
+        </div>
+        <div class="margin-20">
+            <h5>
+                Email:
+                <strong >{{ author.email }}</strong>
+            </h5>
+        </div>
+        <div class="margin-20">
+            <h5>
+                Phone number:
+                <strong >{{ author.tel_number }}</strong>
+            </h5>
+        </div>
+        <div class="margin-20">
+            <h5>
+                Followers:
+                <strong class="count" id="followers">{{ followers }}</strong>
+            </h5>
+        </div>
+        <div class="margin-20">
+            <h5>
+                Followings:
+                <strong class="count" id="followings">{{ followings }}</strong>
+            </h5>
+        </div>
+        <div class="margin-20">
+            <h5>
+                Companies:
+                <strong class="count">{{ posts_count }}</strong>
+            </h5>
+        </div>
+        {% for post in page_obj %}
+        <div id="posts-list" class="block">
+            <div class="post-top">
+                <div class="company-name" id="content-{{ post.id }}">
+                    <p>{{post.post_name}}</p>
+                </div>
+                {% if post.post_author == user %}
+                <div class="edit-page" id="edit-page-{{ post.id }}">
+                    <button class="edit-btn btn" data-post="{{ post.id }}"><i>Edit post</i></button>
+                </div>
+                {% endif %}
+            </div>
+            <div class="post-bottom">
+                <div class="content" id="content-{{ post.id }}">
+                    {{post.description}}
+                </div>
+                {% if user.is_authenticated %}
+                    <div class="content">
+                        <h5><strong>Owner: </strong><a href="{% url 'profile' post.post_author.id %}">{{ post.post_author }}</a></h5>
+                    </div>
+                {% else %}
+                    <div class="content">
+                        <h5><strong>Owner: </strong>{{ post.post_author }}</h5>
+                    </div>
+                {% endif %}
+
+                <div class="content" id="content-{{ post.id }}">
+                    <h5><strong>TIN: </strong>{{post.tin}}</h5>
+                </div>
+                <div class="content" id="content-{{ post.id }}">
+                    <h5><strong>Sertificate number: </strong>{{post.sert_num}}</h5>
+                </div>
+                <div class="content" id="content-{{ post.id }}">
+                    <h5><strong>Sertificate status: </strong>{{post.sert_status}}</h5>
+                </div>
+                <div class="datetime">
+                    <i>Date of publication: {{ post.post_date }}</i>
+                </div>
+                <b:if cond='data:blog.pageType != &quot;index&quot;'>
+                    <div class='post-share'>
+                        <ul class='share-links social social-color'>
+                            <b:class cond='data:blog.isMobileRequest' name='mobile-share'/>
+                                <li class='facebook'><a class='facebook' data-height='650' data-width='550' expr:href='&quot;https://www.facebook.com/sharer.php?u=&quot; + data:post.url' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' rel='nofollow' target='_blank'><span/></a></li>
+                                <li class='twitter'><a class='twitter' data-height='460' data-width='550' expr:href='&quot;https://twitter.com/share?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' rel='nofollow' target='_blank'><span/></a></li>
+                                <li class='pinterest'><a class='pinterest' data-height='750' data-width='735' expr:href='&quot;https://www.pinterest.com/pin/create/button/?url=&quot; + data:post.url + &quot;&amp;media=&quot; + data:post.featuredImage + &quot;&amp;description=&quot; + data:post.title' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' rel='nofollow' target='_blank'><span/></a></li>
+                                <li class='telegram'><a class='telegram' data-height='650' data-width='1000' expr:href='&quot;https://telegram.me/share/url?url=&quot; + data:blog.url' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' rel='nofollow' target='_blank' title='telegram'><span/></a></li>
+                                <li class='vk'><a class='vk' data-height='650' data-width='650' expr:href='&quot;https://vk.com/share.php?mini=true&amp;amp;url=&quot; + data:post.url + &quot;&amp;amp;title=&quot; + data:post.title + &quot;&amp;amp;summary=&quot; + data:post.snippets' onclick='window.open(this.href, &apos;windowName&apos;, &apos;width=550, height=600, left=24, top=24, scrollbars, resizable&apos;); return false;' rel='nofollow' target='_blank' title='Vkontakte'><span/></a></li>
+                                <li class='reddit'><a class='twitter' data-height='460' data-width='550' expr:href='&quot;https://www.reddit.com/submit?url=&quot; + data:post.url + &quot;&amp;resubmit=true&amp;title=&quot; + data:post.title + &quot;&quot;' onclick='window.open(this.href,&quot;popupwindow&quot;,&quot;status=0,height=500,width=500,resizable=0,top=50,left=100&quot;);return false;' rel='nofollow' target='_blank'><span/></a></li>
+                        </ul>
+                    </div>
+                </b:if>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="pagination">
+            <nav aria-label="Page navigation example">
+                <span class="step-links">
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item"><a class="page-link" href="?page=1">&lt;&lt;</a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&lt;</a></li>
+                        {% endif %}
+
+                        {% if page_obj.paginator.num_pages > 1 %}
+                            <li class="page-item"><span class="current page-link">
+                                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                            </span></li>
+                        {% endif %}
+
+                        {% if page_obj.has_next %}
+                            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&gt;</a></li>
+                            <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">&gt;&gt;</a></li>
+                        {% endif %}
+                    </ul>
+                </span>
+            </nav>
+        </div>
+    </div>
+
+
+{% endblock %}

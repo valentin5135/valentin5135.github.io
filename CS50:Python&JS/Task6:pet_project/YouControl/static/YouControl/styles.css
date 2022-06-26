@@ -1,0 +1,226 @@
+.block {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid silver;
+    border-radius: 5px;
+}
+
+.form-control {
+    margin: 10px;
+}
+
+#new-post-form {
+    margin: 20px;
+}
+
+.btn {
+    margin: 10px;
+}
+
+.up {
+    background-color: red;
+    color: white;
+}
+
+.up:hover {
+    background-color: #cc0000;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.down {
+    background-color: silver;
+    color: gray;
+}
+
+.down:hover {
+    background-color: gray;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.post-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.post-bottom {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px 10px 10px;
+}
+
+.company-name {
+    font-size: 30px;
+    margin: 0 20px 0 20px;
+}
+
+.content {
+    font-size: 18px;
+}
+
+.edit-btn {
+    background-color: white;
+    color: gray;
+    padding: 4px;
+    border: 1px solid white;
+}
+
+.delete-btn {
+    background-color: white;
+    color: gray;
+    padding: 4px;
+    border: 1px solid white;
+}
+
+.like-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.like-block > .like {
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.like-block > .likes {
+    padding: 5px;
+}
+
+.fa-heart-o {
+  color: red;
+  cursor: pointer;
+}
+
+.fa-heart {
+  color: red;
+  cursor: pointer;
+}
+
+.profile-title {
+    margin: 30px;
+}
+
+.count {
+    color: red;
+}
+
+.margin-20 {
+    margin: 20px;
+}
+
+.pagination {
+    margin: 20px;
+}
+
+.social .telegram a:before {content: "\f3fe";font-family: 'Font Awesome 5 Brands';}
+.social .facebook a:before {content: "\f09a";font-family: 'Font Awesome 5 Brands';}
+.social .twitter a:before {content: "\f099";font-family: 'Font Awesome 5 Brands';}
+.social .pinterest a:before {content: "\f0d2";font-family: 'Font Awesome 5 Brands';}
+.social .vk a:before {content: "\f189";font-family: 'Font Awesome 5 Brands';}
+.social .reddit a:before {content: "\f1a1";font-family: 'Font Awesome 5 Brands';}
+
+ul.share-links.social.social-color {padding: 0px;}
+li.telegram {background: #3ea9ff;}
+.post-share{position:relative;overflow:hidden;line-height:0;margin:0 0 20px;margin-top:10px;}
+.share-links li{width:30px;float:left;box-sizing:border-box;margin:0 5px 0 0;list-style: none;}
+.share-links li a{float:left;display:inline-block;cursor:pointer;width:100%;height:28px;line-height:28px;color:#fff;font-weight:400;font-size:13px;text-align:center;box-sizing:border-box;opacity:1;margin:0;padding:0;transition:all .25s ease}
+.share-links li.whatsapp-mobile{display:none}
+.mobile-share li.whatsapp-desktop{display:none}
+.mobile-share li.whatsapp-mobile{display:inline-block}
+.share-links li a:before{float:left;display:block;width:30px;background-color:rgba(0,0,0,0.05);text-align:center;line-height:28px}
+.share-links li a:hover{opacity:.8}
+.social-color .odnoklassniki {background: #ffbc00;}
+.social-color .email a:before{content:&quot;\f189&quot;}
+.social a:before{display:inline-block;font-family:&#39;Font Awesome 5 Brands&#39;;font-style:normal;font-weight:400}
+.social .blogger a:before{content:&quot;\f37d&quot;}
+.social .facebook a:before{content:&quot;\f09a&quot;}
+.social .twitter a:before{content:&quot;\f099&quot;}
+.social .telegram a:before{content:&quot;\f3fe&quot;}
+.social .odnoklassniki a:before{content:&quot;\f263&quot;}
+.social .gplus a:before{content:&quot;\f0d5&quot;}
+.social .rss a:before{content:&quot;\f09e&quot;;font-family:&#39;Font Awesome 5 Free&#39;;font-weight:900}
+.social .youtube a:before{content:&quot;\f167&quot;}
+.social .skype a:before{content:&quot;\f17e&quot;}
+.social .stumbleupon a:before{content:&quot;\f1a4&quot;}
+.social .tumblr a:before{content:&quot;\f173&quot;}
+.social .vk a:before{content:&quot;\f189&quot;}
+.social .stack-overflow a:before{content:&quot;\f16c&quot;}
+.social .github a:before{content:&quot;\f09b&quot;}
+.social .linkedin a:before{content:&quot;\f3fe&quot;}
+.social .dribbble a:before{content:&quot;\f17d&quot;}
+.social .soundcloud a:before{content:&quot;\f1be&quot;}
+.social .behance a:before{content:&quot;\f1b4&quot;}
+.social .digg a:before{content:&quot;\f1a6&quot;}
+/*.social .instagram a:before{content:&quot;\f16d&quot;}*/
+.social .pinterest a:before{content:&quot;\f0d2&quot;}
+.social .twitch a:before{content:&quot;\f1e8&quot;}
+.social .delicious a:before{content:&quot;\f1a5&quot;}
+.social .codepen a:before{content:&quot;\f1cb&quot;}
+.social .flipboard a:before{content:&quot;\f44d&quot;}
+.social .reddit a:before{content:&quot;\f1a1&quot;}
+.social .whatsapp a:before{content:&quot;\f232&quot;}
+.social .messenger a:before{content:&quot;\f39f&quot;}
+.social .snapchat a:before{content:&quot;\f2ac&quot;}
+.social .external-link a:before{content:&quot;\f35d&quot;;font-family:&#39;Font Awesome 5 Free&#39;;font-weight:900}
+.social-color .blogger a{background-color:#ff5722}
+.social-color .facebook a{background-color:#3b5999}
+.social-color .twitter a{background-color:#00acee}
+.social-color .gplus a{background-color:#db4a39}
+.social-color .youtube a{background-color:#db4a39}
+.social-color .instagram a{background:linear-gradient(15deg,#ffb13d,#dd277b,#4d5ed4)}
+.social-color .pinterest a{background-color:#ca2127}
+.social-color .dribbble a{background-color:#ea4c89}
+.social-color .linkedin a{background-color:#149fe7}
+.social-color .tumblr a{background-color:#365069}
+.social-color .twitch a{background-color:#6441a5}
+.social-color .rss a{background-color:#ffc200}
+.social-color .skype a{background-color:#00aff0}
+.social-color .stumbleupon a{background-color:#eb4823}
+.social-color .vk a{background-color:#4a76a8}
+.social-color .stack-overflow a{background-color:#f48024}
+.social-color .github a{background-color:#24292e}
+.social-color .soundcloud a{background:linear-gradient(#ff7400,#ff3400)}
+.social-color .behance a{background-color:#191919}
+.social-color .digg a{background-color:#1b1a19}
+.social-color .delicious a{background-color:#0076e8}
+.social-color .codepen a{background-color:#000}
+.social-color .flipboard a{background-color:#f52828}
+.social-color .reddit a{background-color:#ff4500}
+.social-color .whatsapp a{background-color:#3fbb50}
+.social-color .messenger a{background-color:#0084ff}
+.social-color .snapchat a{background-color:#ffe700}
+.social-color .email a{background-color:#63839f}
+.social-color .external-link a{background-color:$(main.dark.color)}
+.social-color-hover .blogger a:hover{background-color:#ff5722}
+.social-color-hover .facebook a:hover{background-color:#3b5999}
+.social-color-hover .twitter a:hover{background-color:#00acee}
+.social-color-hover .gplus a:hover{background-color:#db4a39}
+.social-color-hover .youtube a:hover{background-color:#db4a39}
+.social-color-hover .instagram a:hover{background:linear-gradient(15deg,#ffb13d,#dd277b,#4d5ed4)}
+.social-color-hover .pinterest a:hover{background-color:#ca2127}
+.social-color-hover .dribbble a:hover{background-color:#ea4c89}
+.social-color-hover .linkedin a:hover{background-color:#0077b5}
+.social-color-hover .tumblr a:hover{background-color:#365069}
+.social-color-hover .twitch a:hover{background-color:#6441a5}
+.social-color-hover .rss a:hover{background-color:#ffc200}
+.social-color-hover .skype a:hover{background-color:#00aff0}
+.social-color-hover .stumbleupon a:hover{background-color:#eb4823}
+.social-color-hover .vk a:hover{background-color:#4a76a8}
+.social-color-hover .stack-overflow a:hover{background-color:#f48024}
+.social-color-hover .github a:hover{background-color:#24292e}
+.social-color-hover .soundcloud a:hover{background:linear-gradient(#ff7400,#ff3400)}
+.social-color-hover .behance a{background-color:#191919}
+.social-color-hover .digg a:hover{background-color:#1b1a19}
+.social-color-hover .delicious a:hover{background-color:#0076e8}
+.social-color-hover .codepen a:hover{background-color:#000}
+.social-color-hover .flipboard a:hover{background-color:#f52828}
+.social-color-hover .reddit a:hover{background-color:#ff4500}
+.social-color-hover .whatsapp a:hover{background-color:#3fbb50}
+.social-color-hover .messenger a:hover{background-color:#0084ff}
+.social-color-hover .snapchat a:hover{background-color:#ffe700}
+.social-color-hover .email a:hover{background-color:#888}
+.social-color-hover .external-link a:hover{background-color:$(main.dark.color)}

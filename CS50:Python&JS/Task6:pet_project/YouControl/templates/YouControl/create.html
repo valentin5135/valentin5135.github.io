@@ -1,0 +1,24 @@
+{% extends "YouControl/layout.html" %}
+
+{% block body %}
+
+    <div class="block" id="new-post">
+        <strong>New Company</strong>
+        <form id="new-post-form">
+            <div class="form-group">
+                <input class="form-control" type="text" id="post-name" name="post_name" placeholder="Company Name">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" id="description" name="description" placeholder="Description">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" id="tin" name="tin" placeholder="TIN">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" id="sert_num" name="sert_num" placeholder="Sertificate Number">
+            </div>
+            <input type="submit" class="btn btn-primary" id="send-post" value="Post"/>
+        </form>
+    </div>
+
+{% endblock %}
